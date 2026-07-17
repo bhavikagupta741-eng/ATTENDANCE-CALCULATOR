@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attendix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ HOME ============ -->
+  <section class="screen active" id="screen-home">
+    <div class="top-row">
+      <div>
+        <h1 class="wordmark">Attendix</h1>
+        <p class="subtitle">Your attendance register, kept daily.</p>
+      </div>
+      <span class="date-tag" id="dateTag"></span>
+    </div>
+    <hr class="divider">
+
+    <div class="overall-strip">
+      <span class="overall-label">Overall</span>
+      <span class="overall-value" id="overallValue">—</span>
+    </div>
+
+    <ul class="subject-list" id="subjectList"></ul>
+    <p class="empty-state" id="emptyState">No subjects yet. Add your first one below to start tracking.</p>
+
+    <button class="add-btn" id="goAddBtn">+ New subject</button>
+    <p class="sync-note" id="syncNote">checking backend…</p>
+  </section>
+
+  <!-- ============ NEW SUBJECT ============ -->
+  <section class="screen" id="screen-form">
+    <button class="back-link" id="backFromForm">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Back
+    </button>
+    <h2 class="section-title" id="formTitle">New subject</h2>
+
+    <div class="field-block">
+      <label class="field-label" for="subjectName">Subject name</label>
+      <input type="text" id="subjectName" class="text-input" placeholder="e.g. Organic Chemistry" maxlength="40">
+    </div>
+
+    <div class="field-block">
+      <label class="field-label">Target attendance</label>
+      <div class="slider-row">
+        <input type="range" id="targetSlider" min="50" max="100" value="75" step="1">
+        <span class="slider-value" id="targetValue">75%</span>
+      </div>
+    </div>
+
+    <p class="form-error" id="formError"></p>
+    <button class="primary-btn" id="saveBtn" disabled>Save subject</button>
+  </section>
+
+  <!-- ============ SUBJECT DETAIL ============ -->
+  <section class="screen" id="screen-detail">
+    <button class="back-link" id="backFromDetail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Back
+    </button>
+
+    <div class="detail-hero">
+      <h2 class="detail-name" id="detailName"></h2>
+      <p class="detail-target" id="detailTarget"></p>
+      <p class="detail-pct" id="detailPct"></p>
+      <p class="detail-note" id="detailNote"></p>
+    </div>
+
+    <div class="tally-row">
+      <button class="tally-btn absent" id="markAbsent">Mark absent</button>
+      <button class="tally-btn present" id="markPresent">Mark present</button>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-box">
+        <div class="stat-num" id="statAttended"></div>
+        <div class="stat-label">Attended</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="statHeld"></div>
+        <div class="stat-label">Held</div>
+      </div>
+    </div>
+
+    <button class="delete-link" id="deleteBtn">Remove this subject</button>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
