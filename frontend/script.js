@@ -6,7 +6,7 @@
 // app still works standalone.
 // ---------------------------------------------------------------
 
-const API_BASE = "http://localhost:5000/api"; // switch to "http://localhost:8000/api" for FastAPI
+const API_BASE = "https://attendance-calculator-1-zfco.onrender.com"; // switch to "http://localhost:8000/api" for FastAPI
 const LOCAL_KEY = "attendix_subjects_v2";
 
 let subjects = [];
